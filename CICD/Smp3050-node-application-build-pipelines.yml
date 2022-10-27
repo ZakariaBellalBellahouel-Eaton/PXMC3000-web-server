@@ -21,7 +21,7 @@ steps:
     #npm run test --if-present
   displayName: 'npm build & test'
 - script: |
-    cp $(Build.SourcesDirectory) $(Build.ArtifactStagingDirectory)/SmpWebServer
+    cp $(Build.SourcesDirectory)/dist/* $(Build.ArtifactStagingDirectory)/SmpWebServer
   displayName: 'Copy compiled files'
 - task: PublishBuildArtifacts@1
   inputs:
