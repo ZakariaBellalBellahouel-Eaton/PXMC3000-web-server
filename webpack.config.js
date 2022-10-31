@@ -10,7 +10,7 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
-console.log(nodeModules); module.exports = {
+module.exports = {
     entry: './src/index.js',
     target: 'node',
     output: {
