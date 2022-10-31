@@ -1,7 +1,7 @@
 
 // Sqlite data access function
 const sqlite3 = require('sqlite3').verbose();
-const databasePath = "/usr/local/share/pxmc3000/database/SMPConfiguration.db";
+const databasePath = "C:/Eaton/Software development/Code/Databasefile/SMPConfiguration.db";
 const getDeviInformationSqlQuery = "Select * from SmpDevice;";
 
 

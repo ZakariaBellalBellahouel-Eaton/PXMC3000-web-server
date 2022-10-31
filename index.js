@@ -3,7 +3,6 @@ const host = 'localhost';
 const port = 8000;
 const sqliteDataAccess = require("./DataAccess/sqliteDataAccess");
 
-Zak
 
 const requestListener = function (request, response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
