@@ -7,6 +7,8 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '../../PXMC3000-web-client/build')));
+
 app.get('/api/v1', (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     response.writeHead(200, "Content-Type", "application/json");
@@ -28,24 +30,11 @@ app.get('/api/v1/DeviceInformation', (request, response) => {
 }
 )
 
-app.get('/api/v1/*', (request, response) => {
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.writeHead(200, "Content-Type", "application/json");
-    console.log("Received request : ", request.originalUrl, " - method : ", request.route.methods);
-    response.end(`{ "status" : "success", "message":"the API v1 service is running. Error : requestd API is not valid!"}`);
-}
-)
-
-app.use(express.static("../../PXMC3000-web-client"));
-
+// All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../PXMC3000-web-client', 'build/index.html'));
+    res.sendFile(path.join(__dirname, '../../PXMC3000-web-client/build', 'index.html'));
 });
 
-//if (process.env.NODE_ENV === "production") {
-//}
-
-
-app.listen(port, () => {
+app.listen(port, function () {
     console.log(`Server is running on http://${host}:${port}`);
 });
