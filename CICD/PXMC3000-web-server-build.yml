@@ -21,11 +21,11 @@ steps:
     #npm run test --if-present
   displayName: 'npm build & test'
 - script: |
-    cp $(Build.SourcesDirectory)/build/* $(Build.ArtifactStagingDirectory)/SmpWebServer.js
+    cp $(Build.SourcesDirectory)/build/* $(Build.ArtifactStagingDirectory)/$(PXMC3000-web-server-file-name).js
   displayName: 'Copy compiled files'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'SmpWebServer'
+    ArtifactName: '$(PXMC3000-web-server-file-name)'
     publishLocation: 'Container'
   displayName: 'Publish Compiled JS'
