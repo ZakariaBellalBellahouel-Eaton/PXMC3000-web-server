@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../PXMC3000-web-client')));
+app.use(express.static(path.join(__dirname, '../pxmc3000-web-client')));
 
 app.get('/api/v1', (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
