@@ -32,7 +32,7 @@ app.get('/api/v1/DeviceInformation', (request, response) => {
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../PXMC3000-web-client', 'index.html'));
+    res.sendFile(path.join(__dirname, '../pxmc3000-web-client', 'index.html'));
 });
 
 app.listen(port, function () {
